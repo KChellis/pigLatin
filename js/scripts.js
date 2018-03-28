@@ -3,9 +3,9 @@ var vowels = ["a", "e", "i", "o",
 function vowelWord(string) {
   for (var i = 0; i < vowels.length; i++) {
     if (string[0] === vowels[i]) {
-      return true
-    }else {
-      return false
+      return true;
+    }else{
+
     }
   }
 }
@@ -35,19 +35,17 @@ function consonantWord(string){
 
 
 function pigLatin(text) {
+  text= text.replace(/[.,\/#!$%\^&\*;@:{}=+|\-_"`~()]/g,"");
   text= text.toLowerCase();
   var textArray = text.split(" ");
-  console.log(textArray);
   var latinArray = []
   textArray.forEach(function(word) {
     if (vowelWord(word)) {
       word += "way";
       latinArray.push(word);
-      console.log(latinArray);
     }else {
       word = consonantWord(word);
       latinArray.push(word);
-      console.log(latinArray);
     }
   });
   var finalText = latinArray.join(" ");
