@@ -7,8 +7,8 @@ function vowelWord(string){
 }
 
 function consonantWord(string){
-  for (var i = 0; i < string.length; i++) {
-    if (/[aeiou]/.test(string[i])) {
+  for (var i = 1; i < string.length; i++) {
+    if (/[aeiouy]/.test(string[i])) {
       if (string[i]=== "u" && string[i-1] === "q") {
         var slice = string.slice(i+1);
         var consonants= string.slice(0,i+1);
@@ -37,10 +37,11 @@ function pigLatin(text) {
       word += "way";
       latinArray.push(word);
       console.log(latinArray);
-    }else {
+    }else if (consonantWord(word)) {
       word = consonantWord(word);
       latinArray.push(word);
-      console.log(latinArray);
+    }else {
+      latinArray.push(word);
     }
   });
   var finalText = latinArray.join(" ");
