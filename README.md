@@ -24,7 +24,10 @@ example input: speck
 example output: eckspay
 For words with "qu in the starting consonants, the program removes the "*qu" and adds it to the ends with ay
 example input: quiet
-example output: ietquay_
+example output: ietquay
+the program can translate more than one word
+example input: hello world
+example output: ellohay orldway_
 
 ## Setup/Installation Requirements
 
