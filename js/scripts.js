@@ -1,7 +1,7 @@
 var vowels = ["a", "e", "i", "o",
-"u"];
+"u", "y"];
 function vowelWord(string) {
-  for (var i = 0; i < vowels.length; i++) {
+  for (var i = 0; i < 5; i++) {
     if (string[0] === vowels[i]) {
       return true;
     }else{
@@ -10,7 +10,7 @@ function vowelWord(string) {
   }
 }
 function consonantWord(string){
-  for (var i = 0; i < string.length; i++) {
+  for (var i = 1; i < string.length; i++) {
     for (var j = 0; j < vowels.length; j++) {
       if(string[i] === vowels[j]) {
         if (string[i]=== "u" && string[i-1] === "q") {
@@ -32,8 +32,6 @@ function consonantWord(string){
     }
   }
 }
-
-
 function pigLatin(text) {
   text= text.replace(/[.,\/#!$%\^&\*;@:{}=+|\-_"`~()]/g,"");
   text= text.toLowerCase();
@@ -43,18 +41,16 @@ function pigLatin(text) {
     if (vowelWord(word)) {
       word += "way";
       latinArray.push(word);
-    }else {
+    }else if (consonantWord(word)) {
       word = consonantWord(word);
+      latinArray.push(word);
+    }else {
       latinArray.push(word);
     }
   });
   var finalText = latinArray.join(" ");
   return finalText;
 }
-
-
-
-
 
 $(document).ready(function(){
 
@@ -64,7 +60,4 @@ $(document).ready(function(){
     var output = pigLatin(userText);
     $("#output").text(output);
   });
-
-
-
 });
