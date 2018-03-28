@@ -27,7 +27,11 @@ example input: quiet
 example output: ietquay
 the program can translate more than one word
 example input: hello world
-example output: ellohay orldway_
+example output: ellohay orldway
+the program should translate in many cases
+example input: ThIs
+example output: isthay_
+
 
 ## Setup/Installation Requirements
 

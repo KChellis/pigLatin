@@ -13,24 +13,45 @@ function consonantWord(string){
   for (var i = 0; i < string.length; i++) {
     for (var j = 0; j < vowels.length; j++) {
       if(string[i] === vowels[j]) {
-        var slice = string.slice(i);
-        var consonants= string.slice(0,i);
-        var word = slice + consonants + "ay";
-        j= vowels.length;
-        i= string.length;
-        return word;
+        if (string[i]=== "u" && string[i-1] === "q") {
+          var slice = string.slice(i+1);
+          var consonants= string.slice(0,i+1);
+          var word = slice + consonants + "ay";
+          j= vowels.length;
+          i= string.length;
+          return word;
+        }else {
+          var slice = string.slice(i);
+          var consonants= string.slice(0,i);
+          var word = slice + consonants + "ay";
+          j= vowels.length;
+          i= string.length;
+          return word;
+        }
       }
     }
   }
 }
-function pigLatin(text) {
-  if (vowelWord(text)) {
-    text += "way";
-  }else {
-    text = consonantWord(text);
-  }
 
-  return text;
+
+function pigLatin(text) {
+  text= text.toLowerCase();
+  var textArray = text.split(" ");
+  console.log(textArray);
+  var latinArray = []
+  textArray.forEach(function(word) {
+    if (vowelWord(word)) {
+      word += "way";
+      latinArray.push(word);
+      console.log(latinArray);
+    }else {
+      word = consonantWord(word);
+      latinArray.push(word);
+      console.log(latinArray);
+    }
+  });
+  var finalText = latinArray.join(" ");
+  return finalText;
 }
 
 
